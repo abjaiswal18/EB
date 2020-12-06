@@ -8,7 +8,7 @@ import java.util.*;
 public class region {
 	
 	//function to read the file
-	public static void read(String csvFile){
+	public static ArrayList read(String csvFile){
 		ArrayList<ArrayList<String> > regionList = new ArrayList<ArrayList<String> >();
 		
 		File file = new File(csvFile);
@@ -26,13 +26,14 @@ public class region {
 				regionList.add(regionRow);
 
 			}
-			System.out.println(regionList);
+//			System.out.println(regionList);
 			
 			inputStream.close();
 			
 		}catch(FileNotFoundException e){
 			e.printStackTrace();
 		}
+		return regionList;
 	}
 
 	public static void main(String[] args) {

@@ -8,7 +8,7 @@ import java.util.Scanner;
 public class emp {
 
 	//function to read the file
-	public static void read(String csvFile){
+	public static ArrayList read(String csvFile){
 		ArrayList<ArrayList<String> > empList = new ArrayList<ArrayList<String> >();
 		
 		File file = new File(csvFile);
@@ -26,12 +26,13 @@ public class emp {
 				empList.add(empRow);
 //				System.out.println();
 			}
-			System.out.println(empList);
+//			System.out.println(empList);
 			inputStream.close();
 			
 		}catch(FileNotFoundException e){
 			e.printStackTrace();
 		}
+		return empList;
 	}
 
 	public static void main(String[] args) {

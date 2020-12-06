@@ -7,7 +7,7 @@ import java.util.Scanner;
 public class dept {
 
 	//function to read the file 
-	public static void read(String csvFile){
+	public static ArrayList read(String csvFile){
 		ArrayList<ArrayList<String> > deptList = new ArrayList<ArrayList<String> >();
 		File file = new File(csvFile);
 		try{
@@ -23,12 +23,15 @@ public class dept {
 				deptList.add(deptRow);
 //				System.out.println();
 			}
-			System.out.println(deptList);
 			inputStream.close();
+//			return deptList;
+//			System.out.println(deptList);
+			
 			
 		}catch(FileNotFoundException e){
 			e.printStackTrace();
 		}
+		return deptList;
 	}
 
 	public static void main(String[] args) {
