@@ -2,23 +2,31 @@ package EdubriteQuestion;
 
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class emp {
 
 	//function to read the file
 	public static void read(String csvFile){
+		ArrayList<ArrayList<String> > empList = new ArrayList<ArrayList<String> >();
+		
 		File file = new File(csvFile);
 		try{
 			Scanner inputStream = new Scanner(file);
 			while(inputStream.hasNext()){
 				String data = inputStream.nextLine();
-				String department[] = data.split(",");
-				for(String i:department){
-                  System.out.print(i+" ");
+				String employee[] = data.split(",");
+				ArrayList<String> empRow = new ArrayList<String>();
+				for(String i:employee){
+					
+					empRow.add(i);
+//                  System.out.print(i+" ");
               }
-				System.out.println();
+				empList.add(empRow);
+//				System.out.println();
 			}
+			System.out.println(empList);
 			inputStream.close();
 			
 		}catch(FileNotFoundException e){

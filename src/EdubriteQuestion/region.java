@@ -3,22 +3,31 @@ package EdubriteQuestion;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
+import java.util.*;
 
 public class region {
 	
 	//function to read the file
 	public static void read(String csvFile){
+		ArrayList<ArrayList<String> > regionList = new ArrayList<ArrayList<String> >();
+		
 		File file = new File(csvFile);
 		try{
 			Scanner inputStream = new Scanner(file);
 			while(inputStream.hasNext()){
 				String data = inputStream.nextLine();
-				String department[] = data.split(",");
-				for(String i:department){
-                  System.out.print(i+" ");
+				String region[] = data.split(",");
+				ArrayList<String> regionRow = new ArrayList<String>();
+				for(String i: region){
+					
+					regionRow.add(i);
+
               }
-				System.out.println();
+				regionList.add(regionRow);
+
 			}
+			System.out.println(regionList);
+			
 			inputStream.close();
 			
 		}catch(FileNotFoundException e){
