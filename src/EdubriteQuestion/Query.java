@@ -3,7 +3,7 @@ import java.util.*;
 import java.io.*;
 public class Query {
 	
-	//function to Print employee list (with name, dept, region) sorted by emp name, asc and desc
+	//function to print employee list (with name, dept, region) sorted by emp name, asc and desc
 	
 	public static void firstQuery(List<ArrayList<String>> departmentList, List<ArrayList<String>> employeeList, List<ArrayList<String>> regionList){
 		
@@ -58,7 +58,28 @@ public class Query {
 		}
 	}
 
+	//function to print Emp count in each department and print which dept has no employees
 	
+	public static void secondQuery(List<ArrayList<String>> departmentList, List<ArrayList<String>> employeeList){
+		
+		Map<String, Long> employeePerDepartment = new HashMap<>();
+		System.out.println("Employee Count in each department");
+		for(ArrayList<String> i:departmentList){
+			String dId = i.get(0);
+			long count  = employeeList.stream().filter(o -> o.get(2).contentEquals(dId)).count();
+			employeePerDepartment.put(dId, count);
+			
+			if(!dId.equals("Dept Id")){
+				System.out.println(dId+" "+count);
+			}	
+		}
+		
+		System.out.println("Dept which has no Employees");
+		for(String dId : employeePerDepartment.keySet()) {
+			if(employeePerDepartment.get(dId) == 0)
+				System.out.println(dId);
+		}
+	}
 	
 	
 	
@@ -74,7 +95,9 @@ public class Query {
 		String regionFileName = "./Resources/region.csv";
 		regionList.addAll(region.read(regionFileName));
 		
-		firstQuery(departmentList,employeeList,regionList);
+		
+//		firstQuery(departmentList,employeeList,regionList);
+		secondQuery(departmentList,employeeList);
 		
 		
 		
