@@ -14,19 +14,21 @@ public class region {
 		File file = new File(csvFile);
 		try{
 			Scanner inputStream = new Scanner(file);
+			
 			while(inputStream.hasNext()){
 				String data = inputStream.nextLine();
 				String region[] = data.split(",");
+				
 				ArrayList<String> regionRow = new ArrayList<String>();
+				
 				for(String i: region){
 					
-					regionRow.add(i);
+					regionRow.add(i.trim());
 
               }
 				regionList.add(regionRow);
 
 			}
-//			System.out.println(regionList);
 			
 			inputStream.close();
 			

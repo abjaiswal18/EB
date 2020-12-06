@@ -14,19 +14,21 @@ public class emp {
 		File file = new File(csvFile);
 		try{
 			Scanner inputStream = new Scanner(file);
+			
 			while(inputStream.hasNext()){
 				String data = inputStream.nextLine();
 				String employee[] = data.split(",");
+				
 				ArrayList<String> empRow = new ArrayList<String>();
-				for(String i:employee){
-					
-					empRow.add(i);
-//                  System.out.print(i+" ");
+				
+				for(String i:employee){					
+					empRow.add(i.trim());
               }
+				
 				empList.add(empRow);
-//				System.out.println();
+
 			}
-//			System.out.println(empList);
+
 			inputStream.close();
 			
 		}catch(FileNotFoundException e){
