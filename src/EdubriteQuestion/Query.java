@@ -69,10 +69,11 @@ public class Query {
 		
 		Map<String, Long> employeePerDepartment = new HashMap<>();
 		
+		//Employee Count in each department
 		System.out.println();
 		System.out.println("Employee Count in each department");
 		System.out.println();
-		String noEmployee=" ";
+		
 		for(ArrayList<String> i:departmentList){
 			
 			String dId = i.get(0);
@@ -83,19 +84,19 @@ public class Query {
 			if(!dId.equals("Dept Id")){
 				System.out.println(deptName+" "+count);
 			}
-			if(count == 0){
-				noEmployee = deptName;
-			}
+			
 		}
 		
+		//dept which has no employee
 		System.out.println();
 		System.out.println("Dept which has no Employees");
 		System.out.println();
 		for(String dId : employeePerDepartment.keySet()) {
 			if(employeePerDepartment.get(dId) == 0)
-				System.out.println("Id: "+dId+" Dept Name: "+noEmployee);
+				System.out.println("Id: "+dId);
 		}
 		
+		//Employee Count in each region
 		System.out.println();
 		System.out.println("Employee count in each region");
 		System.out.println();
@@ -119,10 +120,13 @@ public class Query {
 		List<ArrayList<String>> departmentList = new ArrayList<ArrayList<String>>();
 		List<ArrayList<String>> employeeList = new ArrayList<ArrayList<String>>();
 		List<ArrayList<String>> regionList = new ArrayList<ArrayList<String>>();
+		
 		String deptFileName = "./Resources/dept.csv";
 		departmentList.addAll(dept.read(deptFileName));
+		
 		String empFileName = "./Resources/emp.csv";
 		employeeList.addAll(emp.read(empFileName));
+		
 		String regionFileName = "./Resources/region.csv";
 		regionList.addAll(region.read(regionFileName));
 		
