@@ -1,6 +1,7 @@
 package Modified;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -8,10 +9,65 @@ import java.util.stream.Collectors;
 
 public class Query {
 	
+	//function to print employee list (with name, dept, region) sorted by emp name, asc and desc
 	public static void firstQuery(List<Dept> departmentList, List<Emp> employeeList, List<Region> regionList){
+		
+		Map<String, String> regions = new HashMap<>();
+		for(Region i : regionList){
+			regions.put(i.getRegionId(), i.getRegionName());
+		}
+
+		Map<String , String> departmentId_name = new HashMap<>();
+		for(Dept i:departmentList){
+			departmentId_name.put(i.getDeptId(), i.getDeptName());
+		}
+
+		Map<String , String> departmentId_region = new HashMap<>();
+		for(Dept i:departmentList){
+			departmentId_region.put(i.getDeptId(), i.getRegionId());
+		}
+
+		Map<String , String> employeeName_dId = new HashMap<>();
+		for(Emp i:employeeList){
+			employeeName_dId.put(i.getEmpName(), i.getDeptId());
+		}
+		
+		List<String> empName = new ArrayList<>();
+		for(Emp i:employeeList){
+			empName.add(i.getEmpName());
+		}
+		
+		Collections.sort(empName);
+		System.out.println("Employee List in ascending order");
+		System.out.println();
+		
+		for(String name:empName){
+			String dId = employeeName_dId.get(name);
+			String deptName = departmentId_name.get(dId);
+			String regionId = departmentId_region.get(dId);
+			String region = regions.get(regionId);
+			System.out.println(name + " " + deptName + " " + region);
+		}
+		
+		System.out.println();
+		System.out.println("Employee List in descending order");
+		System.out.println();
+		System.out.println("EmpName"+" "+"DeptName"+" "+"RegionName");
+		Collections.sort(empName,Collections.reverseOrder());
+		
+		for (String name : empName) {
+			if(!name.equals("Emp Name")){
+				String dId = employeeName_dId.get(name);
+				String deptName = departmentId_name.get(dId);
+				String regionId = departmentId_region.get(dId);
+				String region = regions.get(regionId);
+				System.out.println(name + " " + deptName + " " + region);
+			}
+		}
 		
 	}
 	
+	//function to print Emp count in each department and print which dept has no employees
 	public static void secondQuery(List<Dept> departmentList, List<Emp> employeeList, List<Region> regionList){
 			
 		Map<String, Long> employeePerDepartment = new HashMap<>();
