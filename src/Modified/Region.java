@@ -25,7 +25,7 @@ public class Region {
 		return this.regionName;
 	}
 		
-	public static void read(String csvFile){
+	public static List<Region> read(String csvFile){
 		
 		ArrayList<Region> regionList = new ArrayList<Region>();
 		
@@ -40,16 +40,17 @@ public class Region {
 			
 			}
 			
-			for(Region i:regionList){
-				System.out.print(i.getRegionId()+" "+i.getRegionName());
-			}
+//			for(Region i:regionList){
+//				System.out.print(i.getRegionId()+" "+i.getRegionName());
+			//System.out.println();
+//			}
 			
 			inputStream.close();
 			
 		}catch(FileNotFoundException e){
 			e.printStackTrace();
 		}
-
+		return regionList;
 	}
 	
 	public static void main(String agr[]){

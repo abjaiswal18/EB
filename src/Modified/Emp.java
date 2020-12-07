@@ -30,7 +30,7 @@ public class Emp {
 		return this.deptId;
 	}
 	
-	public static void read(String csvFile){
+	public static List<Emp> read(String csvFile){
 		
 		List<Emp> empList = new ArrayList<Emp>();
 		
@@ -45,16 +45,17 @@ public class Emp {
 
 			}
 			
-			for(Emp i:empList){
-				System.out.println(i.getEmpId()+" "+i.getEmpName()+" "+i.getDeptId());
-				System.out.println();
-			}
+//			for(Emp i:empList){
+//				System.out.println(i.getEmpId()+" "+i.getEmpName()+" "+i.getDeptId());
+//				System.out.println();
+//			}
 
 			inputStream.close();
 			
 		}catch(FileNotFoundException e){
 			e.printStackTrace();
 		}
+		return empList;
 	}
 
 

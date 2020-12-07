@@ -30,7 +30,7 @@ public class Dept {
 		return this.regionId;
 	}
 	
-	public static void read(String csvFile){
+	public static List<Dept> read(String csvFile){
 		
 		List<Dept> deptList = new ArrayList<Dept>();
 		
@@ -45,15 +45,17 @@ public class Dept {
 
 			}
 			
-			for(Dept i : deptList){
-				System.out.print(i.getDeptId()+" "+i.getDeptName()+" "+i.getRegionId());
-				System.out.println();
-			}
+//			for(Dept i : deptList){
+//				System.out.print(i.getDeptId()+" "+i.getDeptName()+" "+i.getRegionId());
+//				System.out.println();
+//			}
 			inputStream.close();		
 			
 		}catch(FileNotFoundException e){
 			e.printStackTrace();
 		}
+		
+		return deptList;
 	}
 	
 
