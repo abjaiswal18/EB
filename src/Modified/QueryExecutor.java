@@ -2,10 +2,7 @@ package Modified;
 
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
-import java.util.stream.Collectors;
 
 public class QueryExecutor {
 	
@@ -37,41 +34,24 @@ public class QueryExecutor {
 			result.add(new Query1ResultBean(empName,deptName,region));
 			
 		}
-		
+		Collections.sort(result, new SortByNameAsc());
+		System.out.println("Employee List in ascending order");
+		System.out.println();
 		for(Query1ResultBean i:result){
 			System.out.println(i.getEmpName()+" "+i.getDeptName()+" "+i.getRegionName());
 		}
-	}		
-//		Collections.sort(empName);
-//		System.out.println("Employee List in ascending order");
-//		System.out.println();
-//		
-//		for(String name:empName){
-//			String dId = employeeName_dId.get(name);
-//			String deptName = departmentId_name.get(dId);
-//			String regionId = departmentId_region.get(dId);
-//			String region = regions.get(regionId);
-//			System.out.println(name + " " + deptName + " " + region);
-//		}
 		
-//		System.out.println();
-//		System.out.println("Employee List in descending order");
-//		System.out.println();
-//		System.out.println("EmpName"+" "+"DeptName"+" "+"RegionName");
-//		Collections.sort(empName,Collections.reverseOrder());
-//		
-//		for (String name : empName) {
-//			if(!name.equals("Emp Name")){
-//				String dId = employeeName_dId.get(name);
-//				String deptName = departmentId_name.get(dId);
-//				String regionId = departmentId_region.get(dId);
-//				String region = regions.get(regionId);
-//				System.out.println(name + " " + deptName + " " + region);
-//			}
-//		}
-//	
-//	}
-	
+		Collections.sort(result,new SortByNameDesc());
+		System.out.println();
+		System.out.println("Employee List in descending order");
+		System.out.println();
+		System.out.println("EmpName"+" "+"DeptName"+" "+"RegionName");
+		for(Query1ResultBean i:result){
+			if(!i.getEmpName().equals("Emp Name"))
+			System.out.println(i.getEmpName()+" "+i.getDeptName()+" "+i.getRegionName());
+		}
+	}		
+
 	public void executeQuery2(){
 
 		//Employee Count in each department
@@ -85,7 +65,9 @@ public class QueryExecutor {
 		for(String i:allDepartmentId){
 			result1.add(new Query2ResultBean(deptQueryHelper.getDeptNameById(i),empQueryHelper.getEmployeeCount(i)));
 		}
+		System.out.println("DeptName"+" "+"EmpCount");
 		for(Query2ResultBean i:result1){
+			if(!i.getDeptName().equals("Dept Name"))
 			System.out.println(i.getDeptName()+" "+i.getCount());
 		}
 				
@@ -121,8 +103,10 @@ public class QueryExecutor {
 			result3.add(new Query4ResultBean(regionQueryHelper.getRegionNameById(i),count));
 			departmentInCurrentregion.clear();
 		}
+		
+		System.out.println("RegionName "+"EmpCount");
 		for(Query4ResultBean i: result3){
-			if(!i.getRegionName().equals("RegionName"));
+			if(!i.getRegionName().equals("RegionName"))
 			System.out.println(i.getRegionName()+" "+i.getCount());
 		}
 		
