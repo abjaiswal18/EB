@@ -104,9 +104,8 @@ public class Query {
 		for(ArrayList<String> region:regionList){
 			
 			List<List<String>> departmentInCurrentRegion = departmentList.stream().filter(department -> department.get(2).contentEquals(region.get(0))).collect(Collectors.toList());
-
 			long count = departmentInCurrentRegion.stream().mapToLong(o -> employeePerDepartment.get(o.get(0))).sum();
-			
+			System.out.println(departmentInCurrentRegion);
 			if(!region.get(1).equals("RegionName")){
 				System.out.println(region.get(1)+" "+ count);
 			}

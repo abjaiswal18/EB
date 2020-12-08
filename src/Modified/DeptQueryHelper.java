@@ -33,5 +33,9 @@ public class DeptQueryHelper {
 	public List<String> getAllDepartmentId(){
 		return departmentList.stream().map(Dept::getDeptId).collect(Collectors.toList());
 	}
+	
+	public List<Dept> getDepartmentIdByRegionId(String rId){
+		return departmentList.stream().filter(department -> rId.contentEquals(department.getRegionId())).collect(Collectors.toList());
+	}
 
 }

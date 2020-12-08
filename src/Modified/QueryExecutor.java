@@ -130,11 +130,26 @@ public class QueryExecutor {
 //				System.out.println("Id: "+dId);
 //		}
 		
-//		//Employee Count in each region
-//		System.out.println();
-//		System.out.println("Employee count in each region");
-//		System.out.println();
-//
+		
+		//Employee Count in each region
+		System.out.println();
+		System.out.println("Employee count in each region");
+		System.out.println();
+		
+		List<Query4ResultBean> result3 = new ArrayList<>();
+		List<Dept> departmentInCurrentregion = new ArrayList<>();
+		List<String> allRegionId = regionQueryHelper.getAllRegionById();
+		for(String i : allRegionId){
+			departmentInCurrentregion.addAll(deptQueryHelper.getDepartmentIdByRegionId(i));
+			long count = departmentInCurrentregion.stream().mapToLong(o -> empQueryHelper.getEmployeeCount(o.getDeptId())).count();
+			result3.add(new Query4ResultBean(regionQueryHelper.getRegionNameById(i),count));
+			departmentInCurrentregion.clear();
+		}
+		for(Query4ResultBean i: result3){
+			if(!i.getRegionName().equals("RegionName"));
+			System.out.println(i.getRegionName()+" "+i.getCount());
+		}
+
 //		for(Region i : regionList){
 //			
 //			List<Dept> departmentInCurrentRegion = departmentList.stream().filter(department -> department.getRegionId().contentEquals(i.getRegionId())).collect(Collectors.toList());
@@ -145,7 +160,8 @@ public class QueryExecutor {
 //				System.out.println(i.getRegionName()+" "+ count);
 //			}
 //		}
-//
+
+		
 	}
 
 }
