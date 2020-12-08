@@ -7,9 +7,9 @@ import java.util.stream.Collectors;
 
 public class EmpQueryHelper {
 	
-	List<Emp> employeeList;
-	Map<String, String > empIdToName;
-	Map<String, String> empIdToDeptId;
+	private List<Emp> employeeList;
+	private Map<String, String > empIdToName;
+	private Map<String, String> empIdToDeptId;
 	
 	public EmpQueryHelper(List<Emp> employeeList){
 		

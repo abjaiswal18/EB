@@ -9,6 +9,4 @@ public class SortByNameDesc implements Comparator<Query1ResultBean>{
 		
 		return (o2.getEmpName()).compareTo(o1.getEmpName());
 	}
-	
-	
 }

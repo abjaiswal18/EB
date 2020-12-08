@@ -8,19 +8,17 @@ import java.util.Scanner;
 
 public class ReadUtility {
 	
-	private File file;
-	private Scanner inputStream;
+	private String fileName;
 	
-	public ReadUtility(File file, Scanner inputStream) {
-		this.file = file;
-		this.inputStream = inputStream;
+	public ReadUtility(String FileName) {
+		this.fileName = FileName;
 	}
 
 	//function to read dept csv file
-	public static List<Dept> initializeDeptList(String csvFile){
+	public List<Dept> initializeDeptList(){
 		List<Dept> deptList = new ArrayList<Dept>();
 		try{
-			File file = new File(csvFile);
+			File file = new File(fileName);
             Scanner inputStream = new Scanner(file);
 
             while(inputStream.hasNext()){
@@ -38,12 +36,12 @@ public class ReadUtility {
 	}
 	
 	//function to read Emp csv file
-	public static List<Emp> initializeEmpList(String csvFile){
+	public List<Emp> initializeEmpList(){
 
         List<Emp> empList = new ArrayList<Emp>();
 
         try{
-            File file = new File(csvFile);
+            File file = new File(fileName);
             Scanner inputStream = new Scanner(file);
 
             while(inputStream.hasNext()){
@@ -62,12 +60,12 @@ public class ReadUtility {
     }
 
 	//function to read Region csv file
-    public static List<Region> initializeRegionList(String csvFile){
+    public List<Region> initializeRegionList(){
 
-        ArrayList<Region> regionList = new ArrayList<Region>();
+        List<Region> regionList = new ArrayList<Region>();
 
         try{
-            File file = new File(csvFile);
+            File file = new File(fileName);
             Scanner inputStream = new Scanner(file);
 
             while(inputStream.hasNext()){

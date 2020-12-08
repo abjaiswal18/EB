@@ -10,14 +10,18 @@ public class Query {
 		List<Emp> employeeList;
 		List<Region> regionList;
 		
+		
 		String deptFileName = "./Resources/dept.csv";
-		departmentList = ReadUtility.initializeDeptList(deptFileName);
+		ReadUtility deptList = new ReadUtility(deptFileName);
+		departmentList = deptList.initializeDeptList();
 		
 		String empFileName = "./Resources/emp.csv";
-		employeeList = ReadUtility.initializeEmpList(empFileName);
+		ReadUtility empList = new ReadUtility(empFileName);
+		employeeList = empList.initializeEmpList();
 		
 		String regionFileName = "./Resources/region.csv";
-		regionList = ReadUtility.initializeRegionList(regionFileName);
+		ReadUtility regList = new ReadUtility(regionFileName);
+		regionList = regList.initializeRegionList();
 		
 		DeptQueryHelper deptQueryHelper = new DeptQueryHelper(departmentList);
 		EmpQueryHelper empQueryHelper = new EmpQueryHelper(employeeList);
@@ -26,6 +30,7 @@ public class Query {
 		QueryExecutor queryExecutor = new QueryExecutor(deptQueryHelper, empQueryHelper, regionQueryHelper);
 		queryExecutor.executeQuery1();
 		queryExecutor.executeQuery2();
+		queryExecutor.executeQuery4();
 	}
 
 }

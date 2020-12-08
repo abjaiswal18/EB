@@ -6,9 +6,9 @@ import java.util.Map;
 import java.util.stream.Collectors;
 
 public class DeptQueryHelper {
-	List<Dept> departmentList;
-	Map<String, String> deptIdToDeptName;
-	Map<String, String> deptIdToRegionId;
+	private List<Dept> departmentList;
+	private Map<String, String> deptIdToDeptName;
+	private Map<String, String> deptIdToRegionId;
 	
 	public DeptQueryHelper(List<Dept> departmentList){
 		this.departmentList = departmentList;

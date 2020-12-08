@@ -7,9 +7,9 @@ import java.util.stream.Collectors;
 
 public class RegionQueryHelper {
 	
-	List<Region> regionList;
+	private List<Region> regionList;
 	
-	private final Map<String, String> regionIdToName;
+	private Map<String, String> regionIdToName;
 	
 	public RegionQueryHelper(List<Region> regionList){
 		this.regionList = regionList;
