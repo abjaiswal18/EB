@@ -8,6 +8,15 @@ import java.util.Scanner;
 
 public class ReadUtility {
 	
+	private File file;
+	private Scanner inputStream;
+	
+	public ReadUtility(File file, Scanner inputStream) {
+		this.file = file;
+		this.inputStream = inputStream;
+	}
+
+	//function to read dept csv file
 	public static List<Dept> initializeDeptList(String csvFile){
 		List<Dept> deptList = new ArrayList<Dept>();
 		try{
@@ -28,6 +37,7 @@ public class ReadUtility {
         return deptList;
 	}
 	
+	//function to read Emp csv file
 	public static List<Emp> initializeEmpList(String csvFile){
 
         List<Emp> empList = new ArrayList<Emp>();
@@ -51,6 +61,7 @@ public class ReadUtility {
         return empList;
     }
 
+	//function to read Region csv file
     public static List<Region> initializeRegionList(String csvFile){
 
         ArrayList<Region> regionList = new ArrayList<Region>();
