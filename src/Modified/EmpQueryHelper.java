@@ -33,4 +33,8 @@ public class EmpQueryHelper {
 	public String getEmployeeNameById(String id){
 		return empIdToName.get(id);
 	}
+
+	public String getDeptIdById(String dId) {
+		return empIdToDeptId.get(dId);
+	}
 }

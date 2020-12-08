@@ -11,7 +11,17 @@ public class Query1ResultBean {
 		this.deptName = deptName;
 		this.regionName = regionName;
 	}
-	
-	
 
+	public String getEmpName() {
+		return empName;
+	}
+
+	public String getDeptName() {
+		return deptName;
+	}
+
+	public String getRegionName() {
+		return regionName;
+	}
+	
 }

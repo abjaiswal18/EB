@@ -24,7 +24,7 @@ public class Query {
 		RegionQueryHelper regionQueryHelper = new RegionQueryHelper(regionList);
 		
 		QueryExecutor queryExecutor = new QueryExecutor(deptQueryHelper, empQueryHelper, regionQueryHelper);
-//		queryExecutor.executeQuery1();
+		queryExecutor.executeQuery1();
 		queryExecutor.executeQuery2();
 	}
 
